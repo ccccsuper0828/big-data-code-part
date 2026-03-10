@@ -1,0 +1,17 @@
+# GloVe embeddings (too large for GitHub)
+glove.6B.50d.txt
+glove.6B.zip
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,1 +1,76 @@
-# big-data-code-part
+# Ola Customer Review Sentiment Analysis
+
+CDS527 Big Data Analytics — Group Project (Group X)
+
+## Project Overview
+
+PySpark-based sentiment classification system for Ola customer reviews (3,578 samples, 3 classes: Negative/Neutral/Positive).
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+pip install pyspark==4.1.1 matplotlib seaborn wordcloud pandas numpy vaderSentiment transformers torch
+```
+
+### 2. Install Java 17 (required for PySpark 4.x)
+
+**macOS:**
+```bash
+brew install openjdk@17
+```
+
+**Linux/Windows:** Download from [OpenJDK](https://adoptium.net/)
+
+### 3. Download GloVe Embeddings
+
+The GloVe file is too large for GitHub. Download it manually:
+
+```bash
+cd /path/to/bigdata-final
+wget https://nlp.stanford.edu/data/glove.6B.zip
+unzip glove.6B.zip glove.6B.50d.txt
+rm glove.6B.zip
+```
+
+### 4. Run the Notebook
+
+```bash
+jupyter notebook Group_X.code.ipynb
+```
+
+**Run All Cells** from top to bottom. The notebook will:
+- Load and preprocess Ola customer reviews
+- Perform EDA with 9 visualizations
+- Train 7 classifiers × 5 embeddings (35 combinations)
+- Tune hyperparameters
+- Apply 6 improvement methods
+- Generate final results and 6 experiment charts
+
+## Project Structure
+
+- `Group_X.code.ipynb` — Main PySpark notebook (60 cells)
+- `OlaCustomerReviews.csv` — Dataset (3,578 reviews)
+- `glove.6B.50d.txt` — GloVe embeddings (download separately, see above)
+- `fig*.png` — Experiment visualizations
+- `experiment_results.csv` — All model results
+
+## Results
+
+**Best Model:** BERT + LinearSVC (OneVsRest) — Weighted F1 = 0.8648  
+**Baseline:** BoW + Logistic Regression — Weighted F1 = 0.7546  
+**Improvement:** +14.6% relative improvement
+
+## Team Members
+
+- P1: Environment + Data Preprocessing (Cells 2-9)
+- P2: EDA & Visualization (Cells 11-19)
+- P3: Baseline + Embeddings (Cells 21-27)
+- P4: Model Training & Comparison (Cells 29-35)
+- P5: Hyperparameter Tuning (Cells 37-41)
+- P6: Model Improvements + Results (Cells 43-59)
+
+## License
+
+Academic project for CDS527 Big Data Analytics course.
